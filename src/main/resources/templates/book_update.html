@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Page</title>
+</head>
+<body>
+<h2>Update Book</h2>
+<form method="post" action="/book/update">
+    <label for="bookId">Enter Book ID to Update:</label>
+    <input type="text" id="bookId" name="id" placeholder="Book ID">
+    <label for="newTitle">New Title:</label>
+    <input type="text" id="newTitle" name="title" placeholder="New Title">
+    <label for="newAuthor">New Author:</label>
+    <input type="text" id="newAuthor" name="author" placeholder="New Author">
+    <label for="newDescription">New Description:</label>
+    <textarea id="newDescription" name="description" placeholder="New Description"></textarea>
+    <label for="price">Price</label>
+    <input type="text" id="price" name="price" placeholder="New price">
+    <input type="submit" value="Update">
+</form>
+<a href="/" class="back-button">Back to Home</a>
+</body>
+</html>

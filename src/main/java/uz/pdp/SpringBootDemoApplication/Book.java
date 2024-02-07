@@ -10,6 +10,8 @@ import lombok.*;
 @ToString
 public class Book {
     private Long id;
-    private String name;
+    private String title;
+    private String description;
     private String author;
+    private Long price;
 }

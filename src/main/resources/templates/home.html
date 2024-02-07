@@ -1,32 +1,120 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
+    <!-- Add some styling for better visual appeal -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .crud-links {
+            margin-bottom: 10px;
+        }
+        .search-form {
+            margin-bottom: 20px;
+        }
+
+        .crud-link {
+            display: inline-block;
+            padding: 8px 16px;
+            margin-right: 10px;
+            text-decoration: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #333;
+        }
+
+        .crud-link:hover {
+            background-color: #f0f0f0;
+        }
+
+        .crud-link.create {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .crud-link.update {
+            background-color: #2196f3;
+            color: white;
+        }
+
+        .crud-link.delete {
+            background-color: #f44336;
+            color: white;
+        }
+        .crud-link.search {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+
+    </style>
 </head>
 <body>
 <h1>Home Page</h1>
-<a href="/book/create">Book Create</a>
+
+<!-- Button links for CRUD operations -->
+<div class="crud-links">
+    <a th:href="@{/book/create}" class="crud-link create">Create New Book</a>
+    <a th:href="@{/book/update}" class="crud-link update">Update Book</a>
+    <a th:href="@{/book/delete}" class="crud-link delete">Delete Book</a>
+<!--    <a th:href="@{/book/search}" class="crud-link search">Search Books</a>-->
+</div>
+
+
+<!-- Search bar for searching books -->
+<div class="crud-link search">
+    <form th:action="@{/book/search}" method="get">
+        <button type="submit">Search</button>
+        <input type="text" name="query" placeholder="Search books">
+    </form>
+</div>
+
+<!-- Table to display books -->
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>NAME</th>
+        <th>TITLE</th>
+        <th>DESCRIPTION</th>
         <th>AUTHOR</th>
+        <th>PRICE</th>
     </tr>
     </thead>
     <tbody>
+    <!-- Iterate over the list of books and display each book -->
     <tr th:each="book : ${books}">
         <td th:text="${book.id}"></td>
-        <td th:text="${book.name}"></td>
+        <td th:text="${book.title}"></td> <!-- Change 'name' to 'title' -->
+        <td th:text="${book.description}"></td>
         <td th:text="${book.author}"></td>
+        <td th:text="${book.price}"></td>
     </tr>
     </tbody>
 </table>
-<th:block>
-
-</th:block>
 </body>
 </html>

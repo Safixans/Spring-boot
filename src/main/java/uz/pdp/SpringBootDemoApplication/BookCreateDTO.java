@@ -9,6 +9,10 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class BookCreateDTO {
-    private String name;
+
+    private Long id;
+    private String title;
+    private String description;
     private String author;
+    private Long price;
 }

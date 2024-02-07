@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Page</title>
+    <style>
+        /* CSS styles can go here */
+        .back-button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px; /* Adjust margin as needed */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h2>Search Books</h2>
+
+<form method="get" action="/book/search">
+    <label for="searchQuery">Search Query:</label>
+    <input type="text" id="searchQuery" name="query" placeholder="Search Query">
+    <input type="submit" value="Search">
+</form>
+
+<!-- Display search results -->
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Author</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over searchResults and display each book -->
+    <tr th:each="book : ${books}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.description}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.price}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/" class="back-button">Back to Home</a>
+</body>
+</html>
