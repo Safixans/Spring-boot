@@ -1,4 +1,4 @@
-package uz.pdp.SpringBootDemoApplication;
+package uz.pdp.SpringBootDemoApplication.exceptionHandlers;
 
 import lombok.Builder;
 import lombok.Getter;

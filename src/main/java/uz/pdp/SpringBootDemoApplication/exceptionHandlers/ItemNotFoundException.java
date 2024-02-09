@@ -1,4 +1,4 @@
-package uz.pdp.SpringBootDemoApplication;
+package uz.pdp.SpringBootDemoApplication.exceptionHandlers;
 
 
 import org.springframework.http.HttpStatus;
